@@ -12,7 +12,7 @@ export class UsersService {
     private roleService: RolesService
   ) {}
 
-  async create(createUserDto: CreateUserDto) {
+  async createUser(createUserDto: CreateUserDto) {
     const user = await this.userRepository.create(createUserDto);
     const role = await this.roleService.getRoleByValue("USER");
     await user.$set("roles", [role.id]);
@@ -20,9 +20,17 @@ export class UsersService {
     return user;
   }
 
-  async findAll() {
+  async getAllUser() {
     const users = await this.userRepository.findAll({ include: { all: true } });
     return users;
+  }
+
+  async getUserByEmail(email: string) {
+    const user = await this.userRepository.findOne({
+      where: { email },
+      include: { all: true },
+    });
+    return user;
   }
 
   findOne(id: number) {

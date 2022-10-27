@@ -22,14 +22,14 @@ export class UsersController {
   @ApiResponse({ status: 200, type: User })
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+    return this.usersService.createUser(createUserDto);
   }
 
   @ApiOperation({ summary: "Получить всех пользователей" })
   @ApiResponse({ status: 200, type: [User] })
   @Get()
   findAll() {
-    return this.usersService.findAll();
+    return this.usersService.getAllUser();
   }
 
   @ApiOperation({ summary: "Получить пользователя" })
