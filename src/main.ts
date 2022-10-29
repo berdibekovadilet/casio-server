@@ -10,7 +10,7 @@ async function start() {
 
   const config = new DocumentBuilder()
     .setTitle("Online Store REST API")
-    .setDescription("REST API Documentation for Robots Vacuum Cleaners store")
+    .setDescription("REST API Documentation for Casio Watches store")
     .setVersion("1.0.0")
     .addTag("Make by Adilet Berdibekov")
     .build();
